@@ -1,15 +1,14 @@
 package com.example.neobookchallenge.entity;
 
-import com.example.neobookchallenge.Status;
+import com.example.neobookchallenge.enums.Status;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.management.relation.Role;
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
+
 
 @Entity
 @Table(name = "users")
@@ -19,9 +18,9 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class User implements UserDetails {
-    @Id // чтобы айди был уникальным
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //сделает генератор автоматический
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int user_id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -61,5 +60,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 }
