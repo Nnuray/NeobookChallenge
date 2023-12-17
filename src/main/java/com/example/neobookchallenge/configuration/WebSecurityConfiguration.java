@@ -1,6 +1,5 @@
 package com.example.neobookchallenge.configuration;
-
-import com.example.neobookchallenge.jwt.JwtAuthFilter;
+import com.example.week4.jwt.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +12,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -22,7 +22,10 @@ public class WebSecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
 
     final String[] WHITELISTED_ENDPOINTS = {
-            "/auth/**"
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/api/auth/**"
     };
 
 
@@ -31,10 +34,9 @@ public class WebSecurityConfiguration {
         http
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeRequests(authorize ->
-                        authorize
-                                .antMatchers(WHITELISTED_ENDPOINTS).permitAll()
-                                .anyRequest().authenticated()
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(WHITELISTED_ENDPOINTS).permitAll()
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
