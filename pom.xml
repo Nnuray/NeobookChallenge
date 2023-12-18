@@ -9,16 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>week4</artifactId>
+    <artifactId>NeobookChallenge</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>week4</name>
-    <description>week4</description>
+    <name>NeobookChallenge</name>
+    <description>NeobookChallenge</description>
     <properties>
         <java.version>17</java.version>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
@@ -38,9 +37,9 @@
 
 
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>8.1.0</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
         </dependency>
 
         <dependency>

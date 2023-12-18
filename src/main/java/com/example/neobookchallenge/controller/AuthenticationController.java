@@ -1,6 +1,10 @@
 package com.example.neobookchallenge.controller;
 
 
+import com.example.neobookchallenge.dto.auth.AuthenticationRequest;
+import com.example.neobookchallenge.dto.auth.AuthenticationResponse;
+import com.example.neobookchallenge.dto.auth.RegisterRequest;
+import com.example.neobookchallenge.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

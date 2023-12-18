@@ -1,6 +1,6 @@
 package com.example.neobookchallenge.configuration;
 
-import com.example.week4.repository.UserRepository;
+import com.example.neobookchallenge.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

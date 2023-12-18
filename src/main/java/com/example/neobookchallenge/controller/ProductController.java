@@ -1,9 +1,9 @@
 package com.example.neobookchallenge.controller;
 
-import com.example.week4.dto.product.RequestProductDto;
-import com.example.week4.dto.product.ResponseProductDto;
-import com.example.week4.entity.Product;
-import com.example.week4.service.ProductService;
+import com.example.neobookchallenge.dto.product.RequestProductDto;
+import com.example.neobookchallenge.dto.product.ResponseProductDto;
+import com.example.neobookchallenge.entity.Product;
+import com.example.neobookchallenge.service.ProductService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

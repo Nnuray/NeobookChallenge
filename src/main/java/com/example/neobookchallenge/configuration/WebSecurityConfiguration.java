@@ -1,5 +1,5 @@
 package com.example.neobookchallenge.configuration;
-import com.example.week4.jwt.JwtAuthFilter;
+import com.example.neobookchallenge.jwt.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

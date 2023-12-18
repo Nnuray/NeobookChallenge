@@ -1,9 +1,9 @@
 package com.example.neobookchallenge.controller;
 
-import com.example.week4.dto.order.RequestOrderDto;
-import com.example.week4.dto.order.ResponseOrderDto;
-import com.example.week4.entity.User;
-import com.example.week4.service.OrderService;
+import com.example.neobookchallenge.dto.order.RequestOrderDto;
+import com.example.neobookchallenge.dto.order.ResponseOrderDto;
+import com.example.neobookchallenge.entity.User;
+import com.example.neobookchallenge.service.OrderService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
