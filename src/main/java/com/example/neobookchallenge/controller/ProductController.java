@@ -33,11 +33,11 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseProductDto);
     }
 
-    @DeleteMapping("/{productId}")
-    @SecurityRequirement(name = "JWT")
-    public ResponseEntity<Void> deleteProduct(@PathVariable int productId) {
-        productService.deleteProduct(productId);
-        return ResponseEntity.noContent().build();
-    }
+//    @DeleteMapping("/{productId}")
+//    @SecurityRequirement(name = "JWT")
+//    public ResponseEntity<Void> deleteProduct(@PathVariable int productId) {
+//        productService.deleteProduct(productId);
+//        return ResponseEntity.noContent().build();
+//    }
 
 }
