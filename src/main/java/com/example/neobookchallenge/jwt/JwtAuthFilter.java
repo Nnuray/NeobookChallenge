@@ -18,7 +18,7 @@ import java.io.IOException;
 
 @Component // управляемый контейнер спринг
 @RequiredArgsConstructor
-
+//singleton паттерн
 public class JwtAuthFilter extends OncePerRequestFilter { // добавили фильтр для одного раза для каждого запроса
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;

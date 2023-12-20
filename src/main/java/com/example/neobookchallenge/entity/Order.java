@@ -8,7 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "order_table")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,5 +29,9 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+    private String phoneNumber;
+    private String address;
+    private String orientation;
+    private String comment;
 
 }

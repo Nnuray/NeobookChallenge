@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,9 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @Tag(
-        name = "Контроллер для пользователя",
-        description = "В этом контроллере есть возможности получить, создать, обновить, удалить пользователя"
-)
+        name = "Контроллер для пользователя")
 public class UserController {
     private final UserService userService;
 
@@ -40,9 +39,10 @@ public class UserController {
 
     @PutMapping("/update/{id}")
     @SecurityRequirement(name = "JWT")
-    public void updateUser(@PathVariable int id, @RequestBody ResponseUserDto responseUserDto, @PathVariable String updateById) {
-            userService.updateUser(id, responseUserDto);
-        }
+    public void updateUser(@PathVariable int id, @RequestBody ResponseUserDto responseUserDto) {
+        userService.updateUser(id, responseUserDto);
+    }
+
 
     @DeleteMapping("/delete/{id}")
     @SecurityRequirement(name = "JWT")
@@ -55,8 +55,5 @@ public class UserController {
     public List<ResponseUserDto> getAllUsers() {
         return userService.getAllUsers();
     }
-
-
-
 }
 

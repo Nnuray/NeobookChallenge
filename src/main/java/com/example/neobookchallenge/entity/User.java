@@ -12,15 +12,15 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity // чтобы сделать этот клас как сущность
-@Table(name = "users")
+@Table(name = "user_table")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class User implements UserDetails {
-    @Id // чтобы айди был уникальным
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //сделает генератор автоматический
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) //сделает генератор автоматический
     private int id;
     private String firstName;
     private String lastName;

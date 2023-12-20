@@ -18,16 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 @Tag(
-        name = "Контроллер для авторизации/регистрации",
-        description = "В этом контроллере есть возможности авторизации и регистрации"
-) // Название и Описание контроллера в сваггере
+        name = "Контроллер для авторизации/регистрации")
 public class AuthenticationController {
     private final AuthenticationService service;
 
     @PostMapping("/register")
     @Operation(
             summary = "Регистрация нового аккаунта"
-    ) // Описание метода в сваггере
+    )
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
     ) {

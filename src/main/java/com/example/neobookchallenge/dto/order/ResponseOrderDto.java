@@ -22,6 +22,10 @@ public class ResponseOrderDto {
     private String status;
     private ResponseProductDto product;
     private ResponseUserDto user;
+    private String phone_number;
+    private String address;
+    private String orientation;
+    private String comment;
 
     public static ResponseOrderDto toResponseOrderDTO(Order order){
         return ResponseOrderDto.builder()
@@ -29,6 +33,10 @@ public class ResponseOrderDto {
                 .status(order.getStatus().name())
                 .user(toResponseUserDto(order.getUser()))
                 .product(toResponseProductDTO(order.getProduct()))
+                .phone_number(order.getPhoneNumber())
+                .address(order.getAddress())
+                .orientation(order.getOrientation())
+                .comment(order.getComment())
                 .build();
     }
 

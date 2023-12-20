@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/products")
 @Tag(
-        name = "Контроллер для продукта",
-        description = "В этом контроллере есть возможности создать, удалить продукт"
-)
+        name = "Контроллер для продукта")
 public class ProductController {
     private final ProductService productService;
 
@@ -33,11 +31,11 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseProductDto);
     }
 
-//    @DeleteMapping("/{productId}")
-//    @SecurityRequirement(name = "JWT")
-//    public ResponseEntity<Void> deleteProduct(@PathVariable int productId) {
-//        productService.deleteProduct(productId);
-//        return ResponseEntity.noContent().build();
-//    }
+    @DeleteMapping("/{productId}")
+    @SecurityRequirement(name = "JWT")
+    public ResponseEntity<Void> deleteProduct(@PathVariable int productId) {
+        productService.deleteProduct(productId);
+        return ResponseEntity.noContent().build();
+    }
 
 }

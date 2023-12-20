@@ -7,6 +7,7 @@ import com.example.neobookchallenge.enums.Role;
 import com.example.neobookchallenge.enums.Status;
 import com.example.neobookchallenge.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +19,12 @@ import static com.example.neobookchallenge.dto.user.ResponseUserDto.toResponseUs
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public ResponseUserDto getUserById(int id) {
@@ -37,6 +40,9 @@ public class UserService {
                 .status(Status.ACTIVE)
                 .email(userDto.getEmail())
                 .role(Role.USER)
+                .password(userDto.getPassword())
+                .password(passwordEncoder.encode(userDto.getPassword()))
+
                 .build();
         userRepository.save(user);
         return "Пользователь создан";
@@ -50,6 +56,7 @@ public class UserService {
         user.setLastName(userDto.getLastName());
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         userRepository.save(user);
         return toResponseUserDto(user);

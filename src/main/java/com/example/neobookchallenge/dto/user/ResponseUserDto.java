@@ -18,6 +18,7 @@ public class ResponseUserDto {
     private String email;
     private String status;
     private String role;
+    private String password;
 
     public static ResponseUserDto toResponseUserDto(User user) {//конвертировать одного юсера
         return ResponseUserDto.builder()

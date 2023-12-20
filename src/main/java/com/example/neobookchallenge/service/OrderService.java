@@ -13,6 +13,9 @@ import com.example.neobookchallenge.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static com.example.neobookchallenge.dto.order.ResponseOrderDto.toResponseOrderDTO;
 
 
@@ -32,6 +35,10 @@ public class OrderService {
                 .product(product)
                 .user(user)
                 .status(Status.ACTIVE)
+                .phoneNumber(requestOrderDTO.getPhone_number())
+                .address(requestOrderDTO.getAddress())
+                .orientation(requestOrderDTO.getOrientation())
+                .comment(requestOrderDTO.getComment())
                 .build();
         orderRepository.save(order);
         return toResponseOrderDTO(order);
@@ -44,5 +51,11 @@ public class OrderService {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
         return toResponseOrderDTO(order);
+    }
+    public List<ResponseOrderDto> getAllOrders() {
+        List<Order> allOrders = orderRepository.findAll();
+        return allOrders.stream()
+                .map(ResponseOrderDto::toResponseOrderDTO)
+                .collect(Collectors.toList());
     }
 }
