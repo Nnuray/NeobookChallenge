@@ -42,7 +42,7 @@ public class JwtService {
                 .setClaims(extraClaims)  //дополнительные пользовательские данные
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis())) // дата выпуска (текущая дата)
-                .setExpiration(new Date(System.currentTimeMillis() + 1000*60*24))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000*60*23))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)   // подписать токен с секретным ключом
                 .compact(); // вернет token
 
