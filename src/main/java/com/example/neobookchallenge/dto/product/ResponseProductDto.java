@@ -13,6 +13,7 @@ public class ResponseProductDto {
     private String productName;
     private double price;
     private float score;
+    private byte[] photo;
 
     public static ResponseProductDto toResponseProductDTO(Product product){
         return ResponseProductDto.builder()
@@ -20,6 +21,7 @@ public class ResponseProductDto {
                 .productName(product.getProductName())
                 .price(product.getPrice())
                 .score(product.getScore())
+                .photo(product.getPhoto())
                 .build();
     }
 }

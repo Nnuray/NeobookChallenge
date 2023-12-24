@@ -4,7 +4,6 @@ import com.example.neobookchallenge.dto.product.RequestProductDto;
 import com.example.neobookchallenge.entity.Product;
 import com.example.neobookchallenge.repository.ProductRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
